@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     tools:context=".ui.AddNoteFragment">
 
     <EditText
@@ -13,20 +13,20 @@
         android:gravity="top"
         android:hint="@string/title"
         android:inputType="textMultiLine"
-        android:maxLines="2"
-        android:padding="5dp"
+        style="@style/spinner_style"
+        android:maxLines="3"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <EditText
         android:id="@+id/body"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/title"
-        android:layout_marginTop="5dp"
         android:gravity="top"
         android:hint="@string/note"
+        android:minLines="2"
+        style="@style/spinner_style"
         android:inputType="textMultiLine"
-        android:padding="5dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 
