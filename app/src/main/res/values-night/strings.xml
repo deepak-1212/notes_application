@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_item_click">add item click</string>
+    <string name="save_item_click">Save Item</string>
+    <string name="title">TITLE</string>
+    <string name="note">NOTE</string>
+    <string name="delete">Delete</string>
+</resources>
