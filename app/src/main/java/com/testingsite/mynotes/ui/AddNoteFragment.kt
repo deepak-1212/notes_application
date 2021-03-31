@@ -1,18 +1,14 @@
 package com.testingsite.mynotes.ui
 
 import android.app.AlertDialog
-import android.content.Context
-import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.Editable
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
@@ -20,6 +16,7 @@ import com.testingsite.mynotes.R
 import com.testingsite.mynotes.databinding.FragmentAddNoteBinding
 import com.testingsite.mynotes.db.Note
 import com.testingsite.mynotes.db.NoteDatabase
+import com.testingsite.mynotes.utils.hideKeyboard
 import com.testingsite.mynotes.utils.toast
 import java.util.concurrent.Executors
 
@@ -49,7 +46,7 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.deleteItem -> if (clickFrom.equals("update")) deleteNote() else context?.toast("Cannot Delete")
         }
 
@@ -57,10 +54,12 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
     }
 
     private fun deleteNote() {
+        context?.hideKeyboard(binding.title)
+        context?.hideKeyboard(binding.body)
         AlertDialog.Builder(context).apply {
             setTitle("Are you sure?")
             setMessage("You cannot undo this operation")
-            setPositiveButton("Yes") { _,_ ->
+            setPositiveButton("Yes") { _, _ ->
                 val executor = Executors.newSingleThreadExecutor()
                 val handler = Handler(Looper.getMainLooper())
                 executor.execute {
@@ -72,7 +71,7 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
                     }
                 }
             }
-            setNegativeButton("No") { _,_ ->
+            setNegativeButton("No") { _, _ ->
 
             }
         }.create().show()
@@ -81,6 +80,8 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        activity?.actionBar?.title = "Update Note"
+
         if (mnote != null) {
             binding.title.setText(mnote?.title)
             binding.body.setText(mnote?.message)
@@ -88,6 +89,9 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
 
 
         binding.floatingActionButton.setOnClickListener() {
+            context?.hideKeyboard(binding.title)
+            context?.hideKeyboard(binding.body)
+
             val title = binding.title.text.toString().trim()
             val body = binding.body.text.toString().trim()
 
@@ -105,7 +109,7 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
 
             Log.i("TAG", "onActivityCreated from edittext: $title and $body")
 
-            val note = Note(title, body)
+            val note = Note(title, body, 0, "")
 
             val executor = Executors.newSingleThreadExecutor()
             val handler = Handler(Looper.getMainLooper())

@@ -25,5 +25,18 @@
         <item name="android:paddingBottom">5dp</item>
         <item name="android:popupBackground">#DFFFFFFF</item>
         <item name="android:textSize">17sp</item>
+        <item name="color">@color/black</item>
+    </style>
+
+    <style name="edittext">
+        <item name="android:background">@drawable/gradient_bg</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:popupBackground">#DFFFFFFF</item>
+        <item name="android:textSize">17sp</item>
+        <item name="color">@color/black</item>
     </style>
 </resources>

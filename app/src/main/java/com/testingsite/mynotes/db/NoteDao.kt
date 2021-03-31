@@ -9,8 +9,11 @@ interface NoteDao {
     @Insert
     fun insertNote(note: Note)
 
-    @Query("select * from note order by id desc")
-    fun getNote() : List<Note>
+    @Query("select * from note where archive=0 order by id desc")
+    fun getNote() : MutableList<Note>
+
+    @Query("select * from note where archive=1 order by id desc")
+    fun getArchivedNote() : MutableList<Note>
 
     @Update
     fun updateNote(note: Note)

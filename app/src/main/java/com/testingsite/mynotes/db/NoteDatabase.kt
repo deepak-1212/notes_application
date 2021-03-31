@@ -1,19 +1,41 @@
 package com.testingsite.mynotes.db
 
+import android.content.ContentValues
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(
     entities = [Note::class],
-    version = 1
+    version = 3
 )
 abstract class NoteDatabase : RoomDatabase() {
 
     abstract fun getNoteDao() : NoteDao
 
     companion object{
+
+        val migration : Migration = object : Migration(1, 2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER Table Note ADD COLUMN archive INTEGER Default 0")
+                /*val contentValues = ContentValues()
+                contentValues.put("archive", 0)
+                database.update("Note")*/
+            }
+        }
+
+        val migration1 : Migration = object : Migration(2,3) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER Table Note ADD COLUMN color TEXT Default ''")
+                /*val contentValues = ContentValues()
+                contentValues.put("archive", 0)
+                database.update("Note")*/
+            }
+        }
+
         @Volatile private var instance : NoteDatabase? = null
         private val LOCK = Any()
 
@@ -27,7 +49,9 @@ abstract class NoteDatabase : RoomDatabase() {
             context.applicationContext,
             NoteDatabase::class.java,
             "mynotes"
-        ).build()
+        )
+            .addMigrations(migration, migration1)
+            .build()
     }
 
 
