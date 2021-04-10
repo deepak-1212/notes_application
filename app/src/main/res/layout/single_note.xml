@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    android:id="@+id/single_note_view"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/single_note_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
-    android:padding="5dp"
-    >
+    android:padding="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,10 +14,11 @@
         android:layout_margin="3dp">
 
         <ImageButton
-            android:contentDescription="@string/singleoptionselected"
+            android:visibility="gone"
             android:id="@+id/menu_image"
-            android:layout_width="40dp"
+            android:layout_width="35dp"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/singleoptionselected"
             android:src="@drawable/ic_baseline_more_vert_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,27 +29,27 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_marginEnd="314dp"
-            android:padding="5dp"
-            android:text="@string/title"
-            android:maxLines="3"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:ellipsize="end"
+            android:maxLines="3"
+            android:padding="5dp"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/menu_image"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/title" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:ellipsize="end"
+            android:maxLines="7"
+            android:minLines="3"
             android:padding="5dp"
             android:text="@string/note"
-            android:textColor="@color/black"
-            android:minLines="3"
-            android:maxLines="5"
-            android:ellipsize="end"
+            android:textColor="@color/textColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />

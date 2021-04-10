@@ -3,9 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_baseline_delete_24"
         android:id="@+id/deleteItem"
         android:title="@string/delete"/>
+
+    <item
+        app:showAsAction="always"
+        android:icon="@drawable/ic_baseline_archive_24"
+        android:id="@+id/archiveItem"
+        android:title="@string/add_to_archive"/>
 
 </menu>

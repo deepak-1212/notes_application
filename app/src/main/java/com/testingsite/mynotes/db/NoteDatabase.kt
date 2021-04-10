@@ -9,8 +9,8 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(
-    entities = [Note::class],
-    version = 3
+    entities = [Note::class, Colors::class],
+    version = 4
 )
 abstract class NoteDatabase : RoomDatabase() {
 
@@ -18,21 +18,28 @@ abstract class NoteDatabase : RoomDatabase() {
 
     companion object{
 
-        val migration : Migration = object : Migration(1, 2) {
+        /*val migration_1_2 : Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("ALTER Table Note ADD COLUMN archive INTEGER Default 0")
-                /*val contentValues = ContentValues()
+                *//*val contentValues = ContentValues()
                 contentValues.put("archive", 0)
-                database.update("Note")*/
+                database.update("Note")*//*
             }
         }
 
-        val migration1 : Migration = object : Migration(2,3) {
+        val migration_2_3 : Migration = object : Migration(2,3) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("ALTER Table Note ADD COLUMN color TEXT Default ''")
-                /*val contentValues = ContentValues()
+                *//*val contentValues = ContentValues()
                 contentValues.put("archive", 0)
-                database.update("Note")*/
+                database.update("Note")*//*
+            }
+        }*/
+
+        val migration_3_4 : Migration = object : Migration(3,4) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("CREATE TABLE IF NOT EXISTS Colors (id INTEGER PRIMARY KEY NOT NULL, color TEXT NOT NULL, color_hex TEXT NOT NULL)")
+
             }
         }
 
@@ -50,7 +57,7 @@ abstract class NoteDatabase : RoomDatabase() {
             NoteDatabase::class.java,
             "mynotes"
         )
-            .addMigrations(migration, migration1)
+            .addMigrations(/*migration_1_2, migration_2_3, */migration_3_4)
             .build()
     }
 

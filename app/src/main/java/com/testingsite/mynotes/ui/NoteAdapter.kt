@@ -1,9 +1,11 @@
 package com.testingsite.mynotes.ui
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.navigation.Navigation
@@ -40,7 +42,7 @@ class NoteAdapter(val note: MutableList<Note>, applicationContext: Context?) :
                 Navigation.findNavController(it).navigate(action)
             }
 
-            binding.menuImage.setOnClickListener {
+            /*binding.menuImage.setOnClickListener {
                 val popupMenu = PopupMenu(contextAdapter, it)
                 popupMenu.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
 
@@ -50,11 +52,17 @@ class NoteAdapter(val note: MutableList<Note>, applicationContext: Context?) :
                             note[position],
                             position
                         )
+                        R.id.delete -> contextAdapter?.toast("Delete Clicked") *//*deleteNote(
+
+                            note[position],
+                            position,
+                            binding.root
+                        )*//*
                     }
                     true
                 }
                 popupMenu.show()
-            }
+            }*/
 
             /*binding.singleNoteView.setOnLongClickListener {
                 Log.i("TAG", "onBindViewHolder: Test")
@@ -62,6 +70,29 @@ class NoteAdapter(val note: MutableList<Note>, applicationContext: Context?) :
             }*/
         }
     }
+
+    /*private fun deleteNote(notes: Note, position: Int, root: View) {
+        AlertDialog.Builder(contextAdapter).apply {
+            setTitle("Are you sure?")
+            setMessage("You cannot undo this operation")
+            setPositiveButton("Yes") { _, _ ->
+                val executor = Executors.newSingleThreadExecutor()
+                val handler = Handler(Looper.getMainLooper())
+                executor.execute {
+                    contextAdapter?.let { NoteDatabase(it).getNoteDao().deleteNote(notes) }
+                    handler.post {
+                        context.toast("Note Deleted")
+
+                        note.removeAt(position)
+                        notifyItemRemoved(position)
+                    }
+                }
+            }
+            setNegativeButton("No") { _, _ ->
+
+            }
+        }.create().show()
+    }*/
 
     private fun updateArchive(
         notes: Note,
@@ -79,9 +110,9 @@ class NoteAdapter(val note: MutableList<Note>, applicationContext: Context?) :
             noteUpdated.id = notes.id
             NoteDatabase(this.contextAdapter!!).getNoteDao().updateNote(noteUpdated)
             handler.post {
-                this.contextAdapter!!.toast("Added to Archives")
+                contextAdapter!!.toast("Added to Archives")
                 //this.note.drop(position)
-                this.note.removeAt(position)
+                note.removeAt(position)
                 notifyItemRemoved(position)
                 //notifyItemRangeChanged(position, this.note.size)
             }

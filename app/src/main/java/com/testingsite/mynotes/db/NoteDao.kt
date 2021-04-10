@@ -15,6 +15,9 @@ interface NoteDao {
     @Query("select * from note where archive=1 order by id desc")
     fun getArchivedNote() : MutableList<Note>
 
+    @Query("select * from note where archive=1 and id=:auto_id")
+    fun getQueriedArchivedNote(auto_id: Int): MutableList<Note>
+
     @Update
     fun updateNote(note: Note)
 

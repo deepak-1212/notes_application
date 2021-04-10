@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.testingsite.mynotes.R
 import com.testingsite.mynotes.databinding.FragmentArchivesBinding
 import com.testingsite.mynotes.db.NoteDatabase
 import java.util.concurrent.Executors
@@ -19,11 +18,14 @@ class ArchivesFragment : Fragment() {
     private lateinit var binding: FragmentArchivesBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_archives, container, false)
+        //return super.onCreateView(inflater, container, savedInstanceState)
+        binding = FragmentArchivesBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +35,7 @@ class ArchivesFragment : Fragment() {
 
         val orientation = activity?.resources?.configuration?.orientation
 
-        binding = FragmentArchivesBinding.bind(view)
+        //binding = FragmentArchivesBinding.bind(view)
 
         binding.recyclerArchivedNotes.setHasFixedSize(true)
         if (orientation == Configuration.ORIENTATION_PORTRAIT)
@@ -48,7 +50,8 @@ class ArchivesFragment : Fragment() {
         executor.execute {
             val notes = NoteDatabase(requireActivity()).getNoteDao().getArchivedNote()
             handler.post {
-                binding.recyclerArchivedNotes.adapter = NoteArchiveAdapter(notes, activity?.applicationContext)
+                binding.recyclerArchivedNotes.adapter =
+                    NoteArchiveAdapter(notes, activity?.applicationContext)
             }
         }
     }

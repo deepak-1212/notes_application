@@ -10,4 +10,5 @@
     <string name="singleoptionselected">singleOptionSelected</string>
     <string name="add_to_archive">Add to Archive</string>
     <string name="remove_from_archive">Remove from Archive</string>
+    <string name="no_data">No Notes Saved. \nPlease add a note from the button given below!</string>
 </resources>

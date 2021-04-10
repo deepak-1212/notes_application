@@ -13,10 +13,10 @@
         android:layout_height="wrap_content"
         android:gravity="top"
         android:hint="@string/title"
-        android:inputType="textMultiLine|textCapWords"
+        android:inputType="textCapWords|textMultiLine"
         android:maxLines="3"
-        android:padding="5dp"
         android:minLines="2"
+        android:padding="5dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <EditText
@@ -27,9 +27,9 @@
         android:layout_below="@+id/title"
         android:gravity="top"
         android:hint="@string/note"
-        android:padding="5dp"
         android:inputType="textMultiLine|textCapSentences"
         android:minLines="10"
+        android:padding="5dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 
@@ -40,6 +40,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
+        android:backgroundTint="@color/colorPrimary"
         android:clickable="true"
         android:contentDescription="@string/save_item_click"
         android:focusable="true"

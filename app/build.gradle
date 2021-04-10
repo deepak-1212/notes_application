@@ -14,8 +14,8 @@ android {
         applicationId "com.testingsite.mynotes"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 7
+        versionName "1.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,8 +26,9 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
         }
     }
     compileOptions {
@@ -62,7 +63,7 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
 
     //navigation
-    def nav_version = "2.3.4"
+    def nav_version = "2.3.5"
 
     // Java language implementation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"

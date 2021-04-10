@@ -4,11 +4,9 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.transition.Visibility
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -23,12 +21,23 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var binding: FragmentHomeBinding
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        //return super.onCreateView(inflater, container, savedInstanceState)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setHasOptionsMenu(true)
 
-        binding = FragmentHomeBinding.bind(view)
+        //binding = FragmentHomeBinding.bind(view)
         val orientation = activity?.resources?.configuration?.orientation
 
         binding.recyclerViewNotes.setHasFixedSize(true)
@@ -43,6 +52,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val handler = Handler(Looper.getMainLooper())
         executor.execute {
             val notes = NoteDatabase(requireActivity()).getNoteDao().getNote()
+
+            if (notes.size == 0)
+                binding.noNotesTv.visibility = View.VISIBLE
+            else
+                binding.noNotesTv.visibility = View.INVISIBLE
+
             handler.post {
                 binding.recyclerViewNotes.adapter = NoteAdapter(notes, activity?.applicationContext)
             }
@@ -83,7 +98,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
                     Navigation.findNavController(binding.recyclerViewNotes).navigate(action)
                 } else
-                    context?.toast("No Archives Stored")
+                    context?.toast("No Archives")
             }
         }
     }
