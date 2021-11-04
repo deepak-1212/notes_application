@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -44,7 +43,6 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
         super.onViewCreated(view, savedInstanceState)
 
 
-
         //binding = FragmentAddNoteBinding.bind(view)
         mnote = args.Note
         clickFrom = args.ClickFrom
@@ -75,7 +73,8 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
             val handler = Handler(Looper.getMainLooper())
             executor.execute {
 
-                val archivedSelectedNote = NoteDatabase(requireContext()).getNoteDao().getQueriedArchivedNote(mnote!!.id)
+                val archivedSelectedNote =
+                    NoteDatabase(requireContext()).getNoteDao().getQueriedArchivedNote(mnote!!.id)
 
                 if (archivedSelectedNote.size == 0) {
                     val noteUpdated = Note(title, body, 1, "")

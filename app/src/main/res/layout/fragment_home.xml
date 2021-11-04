@@ -25,6 +25,53 @@
         android:textAlignment="center"
         android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/tv_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fabNote"
+        android:layout_alignBottom="@+id/fabNote"
+        android:layout_toStartOf="@+id/fabNote"
+        android:gravity="center"
+        android:text="@string/add_a_note"
+        android:textAlignment="center" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fabReminder"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/add_item_click"
+        android:src="@drawable/ic_baseline_note_add_24"
+        app:backgroundTint="@color/colorPrimary"
+        app:fabSize="mini" />
+
+    <TextView
+        android:id="@+id/tv_reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fabReminder"
+        android:layout_alignBottom="@+id/fabReminder"
+        android:layout_toStartOf="@+id/fabReminder"
+        android:gravity="center"
+        android:text="@string/add_a_reminder"
+        android:textAlignment="center" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabReminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_add"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/add_item_click"
+        android:src="@drawable/reminder"
+        app:backgroundTint="@color/colorPrimary"
+        app:fabSize="mini" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_add"
         android:layout_width="wrap_content"
@@ -35,6 +82,7 @@
         android:contentDescription="@string/add_item_click"
         android:padding="5dp"
         android:src="@drawable/ic_baseline_add_24"
-        app:backgroundTint="@color/colorPrimary" />
+        app:backgroundTint="@color/colorPrimary"
+        app:fabSize="normal" />
 
 </RelativeLayout>

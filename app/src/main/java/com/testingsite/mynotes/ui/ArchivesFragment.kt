@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.testingsite.mynotes.adapter.NoteArchiveAdapter
 import com.testingsite.mynotes.databinding.FragmentArchivesBinding
 import com.testingsite.mynotes.db.NoteDatabase
 import java.util.concurrent.Executors
@@ -40,10 +41,10 @@ class ArchivesFragment : Fragment() {
         binding.recyclerArchivedNotes.setHasFixedSize(true)
         if (orientation == Configuration.ORIENTATION_PORTRAIT)
             binding.recyclerArchivedNotes.layoutManager =
-                StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         else
             binding.recyclerArchivedNotes.layoutManager =
-                StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.VERTICAL)
+                StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL)
 
         val executor = Executors.newSingleThreadExecutor()
         val handler = Handler(Looper.getMainLooper())

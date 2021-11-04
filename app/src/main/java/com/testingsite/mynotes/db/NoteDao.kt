@@ -24,4 +24,21 @@ interface NoteDao {
     @Delete
     fun deleteNote(note: Note)
 
+    @Insert
+    fun insertColor(colors: Colors)
+
+    //Days Table
+    @Insert
+    fun insertDay(days: Days)
+
+    @Query("select count(*) from days")
+    fun getDaysCount(): Int
+
+    @Query("select * from days order by position")
+    fun getDays(): MutableList<Days>
+
+    @Query("delete from days")
+    fun deleteDays()
+
+
 }

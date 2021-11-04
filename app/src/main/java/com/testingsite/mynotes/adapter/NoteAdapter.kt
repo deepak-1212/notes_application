@@ -1,19 +1,16 @@
-package com.testingsite.mynotes.ui
+package com.testingsite.mynotes.adapter
 
-import android.app.AlertDialog
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.PopupMenu
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.testingsite.mynotes.R
 import com.testingsite.mynotes.databinding.SingleNoteBinding
 import com.testingsite.mynotes.db.Note
 import com.testingsite.mynotes.db.NoteDatabase
+import com.testingsite.mynotes.ui.HomeFragmentDirections
 import com.testingsite.mynotes.utils.toast
 import java.util.concurrent.Executors
 

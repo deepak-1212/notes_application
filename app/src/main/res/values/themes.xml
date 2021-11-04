@@ -33,4 +33,10 @@
         <item name="color">@color/black</item>
     </style>
 
+    <style name="textviewNormal">
+        <item name="android:textSize">@dimen/textSizeNormal</item>
+        <item name="android:padding">@dimen/padding</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>

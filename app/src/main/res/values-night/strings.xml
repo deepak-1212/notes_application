@@ -2,10 +2,4 @@
 <resources>
     <string name="add_item_click">add item click</string>
     <string name="save_item_click">Save Item</string>
-    <string name="title">TITLE</string>
-    <string name="note">NOTE</string>
-    <string name="delete">Delete</string>
-    <string name="singleoptionselected">singleOptionSelected</string>
-    <string name="add_to_archive">Add to Archive</string>
-    <string name="remove_from_archive">Remove from Archive</string>
 </resources>

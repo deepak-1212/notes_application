@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#00bcd4</color>
-    <color name="colorPrimaryDark">#008ba3</color>
-    <color name="colorPrimaryLight">#62efff</color>
+    <color name="colorPrimary">#00BCD4</color>
+    <color name="colorPrimaryDark">#008BA3</color>
+    <color name="colorPrimaryLight">#62EFFF</color>
     <color name="textColor">#FFFFFF</color>
     <color name="editTextBg">#000000</color>
-
-    <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color>
-    <color name="grey">#808080</color>
-
 </resources>

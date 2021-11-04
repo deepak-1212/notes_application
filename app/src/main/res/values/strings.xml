@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyNotes</string>
+    <string name="app_name">Notes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_item_click">add item click</string>
@@ -11,4 +11,9 @@
     <string name="add_to_archive">Add to Archive</string>
     <string name="remove_from_archive">Remove from Archive</string>
     <string name="no_data">No Notes Saved. \nPlease add a note from the button given below!</string>
+    <string name="add_a_reminder">Add a Reminder</string>
+    <string name="add_a_note">Add a Note</string>
+    <string name="select_days">Select days</string>
+    <string name="submit">Submit</string>
+    <string name="repeat">Repeat</string>
 </resources>

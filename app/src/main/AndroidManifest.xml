@@ -11,8 +11,10 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/notes_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppTheme">
-        <activity android:name=".ui.MainActivity">
+        android:theme="@style/Theme.AppTheme"
+        android:fullBackupContent="false">
+        <activity android:name=".ui.MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

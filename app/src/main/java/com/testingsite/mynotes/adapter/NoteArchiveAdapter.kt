@@ -1,4 +1,4 @@
-package com.testingsite.mynotes.ui
+package com.testingsite.mynotes.adapter
 
 import android.content.Context
 import android.os.Handler
@@ -12,6 +12,7 @@ import com.testingsite.mynotes.R
 import com.testingsite.mynotes.databinding.SingleNoteBinding
 import com.testingsite.mynotes.db.Note
 import com.testingsite.mynotes.db.NoteDatabase
+import com.testingsite.mynotes.ui.ArchivesFragmentDirections
 import com.testingsite.mynotes.utils.toast
 import java.util.concurrent.Executors
 
@@ -30,7 +31,10 @@ class NoteArchiveAdapter(val note: MutableList<Note>, applicationContext: Contex
             binding.textView2.text = message
 
             binding.singleNoteView.setOnClickListener {
-                val action = ArchivesFragmentDirections.actionArchiveFragmentToAddNoteFragment(note[position], "update")
+                val action = ArchivesFragmentDirections.actionArchiveFragmentToAddNoteFragment(
+                    note[position],
+                    "update"
+                )
                 Navigation.findNavController(it).navigate(action)
             }
 

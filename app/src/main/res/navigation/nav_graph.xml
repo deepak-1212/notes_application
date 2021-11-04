@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_homeFragment_to_archiveFragment"
             app:destination="@id/archiveFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_reminderFragment"
+            app:destination="@id/reminderFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
@@ -44,5 +47,12 @@
         <action
             android:id="@+id/action_archiveFragment_to_addNoteFragment"
             app:destination="@id/addNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reminderFragment"
+        android:name="com.testingsite.mynotes.ui.AddReminderFragment"
+        android:label="Set Reminders"
+        tools:layout="@layout/fragment_add_reminder">
+
     </fragment>
 </navigation>
