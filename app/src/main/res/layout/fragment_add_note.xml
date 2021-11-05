@@ -1,50 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
     tools:context=".ui.AddNoteFragment">
 
-    <EditText
-        android:id="@+id/title"
-        style="@style/spinner_style"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/titleTIL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="top"
-        android:hint="@string/title"
-        android:inputType="textCapWords|textMultiLine"
-        android:maxLines="3"
-        android:minLines="2"
-        android:padding="5dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:layout_margin="24dp"
+        android:outlineAmbientShadowColor="#142c2738"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="@dimen/shadow_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/body"
-        style="@style/spinner_style"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextAppearance.App.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="@string/title"
+                android:background="@drawable/white_box"
+                android:fontFamily="@font/barlow_regular"
+                android:inputType="text"
+                android:minLines="2"
+                android:maxLines="3"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/usernameLoginTIL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:gravity="top"
-        android:hint="@string/note"
-        android:inputType="textMultiLine|textCapSentences"
-        android:minLines="10"
-        android:padding="5dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:layout_margin="24dp"
+        android:outlineAmbientShadowColor="#142c2738"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="@dimen/shadow_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTIL">
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameLoginTIL1"
+            style="@style/TextAppearance.App.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/note"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/note"
+                android:background="@drawable/white_box"
+                android:fontFamily="@font/barlow_regular"
+                android:inputType="textMultiLine|textCapSentences"
+                android:minLines="10"
+                android:maxLines="15"
+                android:gravity="top|start"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/colorPrimary"
-        android:clickable="true"
         android:contentDescription="@string/save_item_click"
-        android:focusable="true"
-        android:padding="5dp"
-        android:src="@drawable/ic_baseline_done_24" />
+        android:src="@drawable/ic_baseline_done_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

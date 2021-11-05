@@ -3,4 +3,6 @@
     <dimen name="textSizeNormal">16sp</dimen>
     <dimen name="textSizeHeader">20sp</dimen>
     <dimen name="padding">20sp</dimen>
+    <dimen name="_14sdp">14dp</dimen>
+    <dimen name="shadow_input">6dp</dimen>
 </resources>

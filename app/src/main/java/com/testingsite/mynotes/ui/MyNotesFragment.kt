@@ -17,10 +17,9 @@ import com.testingsite.mynotes.db.Note
 import com.testingsite.mynotes.db.NoteDatabase
 import com.testingsite.mynotes.utils.AnimationUtils
 import com.testingsite.mynotes.utils.toast
-import java.text.FieldPosition
 import java.util.concurrent.Executors
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class MyNotesFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private var rotate = false
@@ -30,27 +29,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         //return super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setHasOptionsMenu(true)
 
         insertDaysIfEmpty();
 
         //binding = FragmentHomeBinding.bind(view)
         val orientation = activity?.resources?.configuration?.orientation
 
-        AnimationUtils.init(binding.fabNote)
+        /*AnimationUtils.init(binding.fabNote)
         AnimationUtils.init(binding.fabReminder)
         AnimationUtils.init(binding.tvNote)
-        AnimationUtils.init(binding.tvReminder)
+        AnimationUtils.init(binding.tvReminder)*/
 
         binding.recyclerViewNotes.setHasFixedSize(true)
         if (orientation == Configuration.ORIENTATION_PORTRAIT)
@@ -71,14 +67,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 binding.noNotesTv.visibility = View.INVISIBLE
 
             handler.post {
-                binding.recyclerViewNotes.adapter = NoteAdapter(notes, activity?.applicationContext)
+                binding.recyclerViewNotes.adapter = NoteAdapter(notes, requireActivity())
             }
         }
 
         binding.buttonAdd.setOnClickListener {
 
+            val note = Note("", "", 0, "")
+            val action = MyNotesFragmentDirections.actionHomeFragmentToAddNoteFragment(note, "insert")
+            Navigation.findNavController(view).navigate(action)
 
-            rotateView = it
+            /*rotateView = it
             rotate = AnimationUtils.rotateFab(it, !rotate)
 
             if (rotate) {
@@ -91,17 +90,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 AnimationUtils.showOut(binding.fabReminder);
                 AnimationUtils.showOut(binding.tvNote);
                 AnimationUtils.showOut(binding.tvReminder);
-            }
+            }*/
 
         }
 
-        binding.fabNote.setOnClickListener {
+        /*binding.fabNote.setOnClickListener {
 
             rotate = false
 
             Log.i("TAG", "onViewCreated: Note Button Clicked")
             val note = Note("", "", 0, "")
-            val action = HomeFragmentDirections.actionHomeFragmentToAddNoteFragment(note, "insert")
+            val action = MyNotesFragmentDirections.actionHomeFragmentToAddNoteFragment(note, "insert")
             Navigation.findNavController(view).navigate(action)
 
         }
@@ -112,10 +111,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
             Log.i("TAG", "onViewCreated: $rotate")
 
-            val action = HomeFragmentDirections.actionHomeFragmentToReminderFragment()
+            val action = MyNotesFragmentDirections.actionHomeFragmentToReminderFragment()
             Navigation.findNavController(view).navigate(action)
 
-            /*context?.snackbar( LayoutInflater.from(context).inflate(R.layout.snackbar_view, binding.root, true), "Under Progress!")
+            *//*context?.snackbar( LayoutInflater.from(context).inflate(R.layout.snackbar_view, binding.root, true), "Under Progress!")
 
 
             rotate = AnimationUtils.rotateFab(rotateView, !rotate)
@@ -123,8 +122,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             AnimationUtils.showOut(binding.fabNote)
             AnimationUtils.showOut(binding.fabReminder)
             AnimationUtils.showOut(binding.tvNote)
-            AnimationUtils.showOut(binding.tvReminder)*/
-        }
+            AnimationUtils.showOut(binding.tvReminder)*//*
+        }*/
     }
 
     private fun insertDaysIfEmpty() {
@@ -157,22 +156,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-
-        inflater.inflate(R.menu.view_archive, menu)
-
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.archive_list -> checkArchiveList()
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
-
     private fun checkArchiveList() {
         val executor = Executors.newSingleThreadExecutor()
         val handler = Handler(Looper.getMainLooper())
@@ -180,7 +163,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             val notes = NoteDatabase(requireActivity()).getNoteDao().getArchivedNote()
             handler.post {
                 if (notes.isNotEmpty()) {
-                    val action = HomeFragmentDirections.actionHomeFragmentToArchiveFragment()
+                    val action = MyNotesFragmentDirections.actionHomeFragmentToArchiveFragment()
 
                     Navigation.findNavController(binding.recyclerViewNotes).navigate(action)
                 } else

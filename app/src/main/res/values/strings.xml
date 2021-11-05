@@ -11,9 +11,17 @@
     <string name="add_to_archive">Add to Archive</string>
     <string name="remove_from_archive">Remove from Archive</string>
     <string name="no_data">No Notes Saved. \nPlease add a note from the button given below!</string>
+    <string name="no_archives_saved">No Personal Notes Saved.</string>
     <string name="add_a_reminder">Add a Reminder</string>
     <string name="add_a_note">Add a Note</string>
     <string name="select_days">Select days</string>
     <string name="submit">Submit</string>
     <string name="repeat">Repeat</string>
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+    <string name="my_notes">My Notes</string>
+    <string name="personal_notes">Personal Notes</string>
+    <string name="tasks">Tasks</string>
+    <string name="upcoming_alarms">Upcoming Alarms</string>
+    <string name="settings">Settings</string>
 </resources>

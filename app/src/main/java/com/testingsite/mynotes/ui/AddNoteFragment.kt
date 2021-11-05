@@ -8,7 +8,6 @@ import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.navArgs
 import com.testingsite.mynotes.R
 import com.testingsite.mynotes.databinding.FragmentAddNoteBinding
 import com.testingsite.mynotes.db.Note
@@ -17,13 +16,12 @@ import com.testingsite.mynotes.utils.hideKeyboard
 import com.testingsite.mynotes.utils.toast
 import java.util.concurrent.Executors
 
-class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
+class AddNoteFragment : Fragment() {
 
     private lateinit var binding: FragmentAddNoteBinding
 
-    val args: AddNoteFragmentArgs by navArgs()
     private var mnote: Note? = null
-    private lateinit var clickFrom: String
+    private var clickFrom: String = ""
 
     var title = ""
     var body = ""
@@ -35,19 +33,55 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
     ): View {
         //return super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentAddNoteBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        clickFrom = AddNoteFragmentArgs.fromBundle(requireArguments()).clickFrom
+        mnote = AddNoteFragmentArgs.fromBundle(requireArguments()).note!!
 
-        //binding = FragmentAddNoteBinding.bind(view)
-        mnote = args.Note
-        clickFrom = args.ClickFrom
+        if (clickFrom.equals("update")) {
+            //activity?.actionBar?.title = "Update Note"
+            (requireActivity() as AppCompatActivity).supportActionBar?.title = "Update Note"
+
+            setHasOptionsMenu(true)
+        }
+
+        if (mnote != null) {
+            binding.title.setText(mnote?.title)
+            binding.body.setText(mnote?.message)
+        }
 
 
+        binding.floatingActionButton.setOnClickListener() {
+            context?.hideKeyboard(binding.title)
+            context?.hideKeyboard(binding.body)
+
+            if (checkEditValue()) {
+                val note = Note(title, body, 0, "")
+
+                val executor = Executors.newSingleThreadExecutor()
+                val handler = Handler(Looper.getMainLooper())
+                executor.execute {
+
+                    if (clickFrom.equals("update")) {
+                        note.id = mnote!!.id
+                        NoteDatabase(requireActivity()).getNoteDao().updateNote(note)
+                    } else if (clickFrom.equals("insert")) {
+                        NoteDatabase(requireActivity()).getNoteDao().insertNote(note)
+                    }
+
+                    handler.post {
+                        val action = AddNoteFragmentDirections.actionSaveNote()
+                        Navigation.findNavController(it).navigate(action)
+
+                    }
+                }
+            }
+
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -140,51 +174,6 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
 
             }
         }.create().show()
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        if (clickFrom.equals("update")) {
-            //activity?.actionBar?.title = "Update Note"
-            (requireActivity() as AppCompatActivity).supportActionBar?.title = "Update Note"
-
-            setHasOptionsMenu(true)
-        }
-
-        if (mnote != null) {
-            binding.title.setText(mnote?.title)
-            binding.body.setText(mnote?.message)
-        }
-
-
-        binding.floatingActionButton.setOnClickListener() {
-            context?.hideKeyboard(binding.title)
-            context?.hideKeyboard(binding.body)
-
-            if (checkEditValue()) {
-                val note = Note(title, body, 0, "")
-
-                val executor = Executors.newSingleThreadExecutor()
-                val handler = Handler(Looper.getMainLooper())
-                executor.execute {
-
-                    if (clickFrom.equals("update")) {
-                        note.id = mnote!!.id
-                        NoteDatabase(requireActivity()).getNoteDao().updateNote(note)
-                    } else if (clickFrom.equals("insert")) {
-                        NoteDatabase(requireActivity()).getNoteDao().insertNote(note)
-                    }
-
-                    handler.post {
-                        val action = AddNoteFragmentDirections.actionSaveNote()
-                        Navigation.findNavController(it).navigate(action)
-
-                    }
-                }
-            }
-
-        }
-
     }
 
 }

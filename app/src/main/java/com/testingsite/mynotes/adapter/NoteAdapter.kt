@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.testingsite.mynotes.databinding.SingleNoteBinding
 import com.testingsite.mynotes.db.Note
 import com.testingsite.mynotes.db.NoteDatabase
-import com.testingsite.mynotes.ui.HomeFragmentDirections
+import com.testingsite.mynotes.ui.MyNotesFragmentDirections
 import com.testingsite.mynotes.utils.toast
 import java.util.concurrent.Executors
 
@@ -31,7 +31,7 @@ class NoteAdapter(val note: MutableList<Note>, applicationContext: Context?) :
             binding.textView2.text = message
 
             binding.singleNoteView.setOnClickListener {
-                val action = HomeFragmentDirections.actionHomeFragmentToAddNoteFragment(
+                val action = MyNotesFragmentDirections.actionHomeFragmentToAddNoteFragment(
                     note[position],
                     "update"
                 )
@@ -96,7 +96,7 @@ class NoteAdapter(val note: MutableList<Note>, applicationContext: Context?) :
         position: Int
     ) {
 
-        /*val homeFragment = HomeFragment()
+        /*val homeFragment = MyNotesFragment()
         homeFragment.updateList(notes, position, contextAdapter, note)*/
 
         val noteUpdated = Note(notes.title, notes.message, 1, "")

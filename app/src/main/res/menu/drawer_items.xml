@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_baseline_delete_24"
+        android:title="@string/my_notes" />
+
+    <item
+        android:id="@+id/archiveFragment"
+        android:icon="@drawable/ic_baseline_archive_24"
+        android:title="@string/personal_notes" />
+
+    <item
+        android:id="@+id/tasksListFragment"
+        android:icon="@drawable/tasks"
+        android:title="@string/tasks" />
+
+    <item
+        android:id="@+id/upcomingAlarmsFragment"
+        android:icon="@drawable/alarms"
+        android:title="@string/upcoming_alarms" />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/settings"
+        android:title="@string/settings" />
+
+</menu>

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.testingsite.mynotes.ui.HomeFragment"
+        android:name="com.testingsite.mynotes.ui.MyNotesFragment"
         android:label="My Notes"
         tools:layout="@layout/fragment_home">
 
@@ -17,27 +17,6 @@
         <action
             android:id="@+id/action_homeFragment_to_archiveFragment"
             app:destination="@id/archiveFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_reminderFragment"
-            app:destination="@id/reminderFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/addNoteFragment"
-        android:name="com.testingsite.mynotes.ui.AddNoteFragment"
-        android:label="Add Note"
-        tools:layout="@layout/fragment_add_note">
-        <action
-            android:id="@+id/actionSaveNote"
-            app:destination="@id/homeFragment">
-        </action>
-        <argument
-            android:name="Note"
-            app:argType="com.testingsite.mynotes.db.Note"
-            />
-        <argument
-            android:name="ClickFrom"
-            app:argType="string" />
-
     </fragment>
     <fragment
         android:id="@+id/archiveFragment"
@@ -49,10 +28,43 @@
             app:destination="@id/addNoteFragment" />
     </fragment>
     <fragment
-        android:id="@+id/reminderFragment"
-        android:name="com.testingsite.mynotes.ui.AddReminderFragment"
-        android:label="Set Reminders"
-        tools:layout="@layout/fragment_add_reminder">
+        android:id="@+id/tasksListFragment"
+        android:name="com.testingsite.mynotes.ui.TasksListFragment"
+        android:label="Tasks"
+        tools:layout="@layout/fragment_tasks_list">
+    </fragment>
+    <fragment
+        android:id="@+id/upcomingAlarmsFragment"
+        android:name="com.testingsite.mynotes.ui.UpcomingAlarmsFragment"
+        android:label="Upcoming Alarm"
+        tools:layout="@layout/fragment_upcoming_alarms">
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.testingsite.mynotes.ui.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings">
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.testingsite.mynotes.ui.AddNoteFragment"
+        android:label="Add Note"
+        tools:layout="@layout/fragment_add_note">
+        <action
+            android:id="@+id/actionSaveNote"
+            app:destination="@id/homeFragment">
+        </action>
+
+        <argument
+            android:name="note"
+            app:argType="com.testingsite.mynotes.db.Note"
+            app:nullable="true"/>
+        <argument
+            android:name="clickFrom"
+            app:argType="string"
+            android:defaultValue="Insert" />
+
 
     </fragment>
+
 </navigation>

@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/drawable/settings.xml" value="0.29074074074074074" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/drawable/white_box.xml" value="0.29259259259259257" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/drawable/white_box_without_border.xml" value="0.29259259259259257" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/activity_main.xml" value="0.24814814814814815" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/days_select_bottom_sheet.xml" value="0.24351851851851852" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_add_note.xml" value="0.2203125" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_add_reminder.xml" value="0.20572916666666666" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_archives.xml" value="0.24351851851851852" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_home.xml" value="0.24351851851851852" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_tasks_list.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_upcoming_alarms.xml" value="0.22" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/single_note.xml" value="0.2203125" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/snackbar_view.xml" value="0.24351851851851852" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/menu/add_note_menu.xml" value="0.2203125" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/menu/drawer_items.xml" value="0.2203125" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
