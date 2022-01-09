@@ -92,8 +92,8 @@ class AddNoteFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            R.id.deleteItem -> if (clickFrom.equals("update")) deleteNote() else context?.toast("Cannot Delete")
-            R.id.archiveItem -> if (clickFrom.equals("update")) archiveNote() else context?.toast("Please save first")
+            R.id.deleteItem -> if (clickFrom == "update") deleteNote() else context?.toast("Cannot Delete")
+            R.id.archiveItem -> if (clickFrom == "update") archiveNote() else context?.toast("Please save first")
         }
 
         return super.onOptionsItemSelected(item)
@@ -116,7 +116,8 @@ class AddNoteFragment : Fragment() {
                     noteUpdated.id = mnote!!.id
                     NoteDatabase(requireContext()).getNoteDao().updateNote(noteUpdated)
                     handler.post {
-                        context?.toast("Added to Archives")
+                        context?.toast("Added to Personal list")
+                        requireActivity().onBackPressed()
                     }
                 } else {
                     val noteUpdated = Note(title, body, 0, "")
@@ -124,7 +125,8 @@ class AddNoteFragment : Fragment() {
                     noteUpdated.id = mnote!!.id
                     NoteDatabase(requireContext()).getNoteDao().updateNote(noteUpdated)
                     handler.post {
-                        context?.toast("Removed from Archives")
+                        context?.toast("Removed from Personal list")
+                        requireActivity().onBackPressed()
                     }
                 }
 

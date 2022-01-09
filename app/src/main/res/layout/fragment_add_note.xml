@@ -33,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:autofillHints="@string/title"
                 android:background="@drawable/white_box"
-                android:fontFamily="@font/barlow_regular"
+                android:fontFamily="@font/barlow_semi_bold"
                 android:inputType="text"
                 android:minLines="2"
                 android:maxLines="3"

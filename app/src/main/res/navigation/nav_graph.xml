@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/archiveFragment"
         android:name="com.testingsite.mynotes.ui.ArchivesFragment"
-        android:label="My Archives"
+        android:label="Personal Notes"
         tools:layout="@layout/fragment_archives">
         <action
             android:id="@+id/action_archiveFragment_to_addNoteFragment"
@@ -32,11 +32,15 @@
         android:name="com.testingsite.mynotes.ui.TasksListFragment"
         android:label="Tasks"
         tools:layout="@layout/fragment_tasks_list">
+        <action
+            android:id="@+id/actionSaveTask"
+            app:destination="@id/addTaskFragment">
+        </action>
     </fragment>
     <fragment
         android:id="@+id/upcomingAlarmsFragment"
         android:name="com.testingsite.mynotes.ui.UpcomingAlarmsFragment"
-        android:label="Upcoming Alarm"
+        android:label="Alarms"
         tools:layout="@layout/fragment_upcoming_alarms">
     </fragment>
     <fragment
@@ -63,8 +67,11 @@
             android:name="clickFrom"
             app:argType="string"
             android:defaultValue="Insert" />
-
-
     </fragment>
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.testingsite.mynotes.ui.AddTaskFragment"
+        android:label="Add Task"
+        tools:layout="@layout/fragment_add_task"/>
 
 </navigation>

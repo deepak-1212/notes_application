@@ -10,15 +10,21 @@
         <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/days_select_bottom_sheet.xml" value="0.24351851851851852" />
         <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_add_note.xml" value="0.2203125" />
         <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_add_reminder.xml" value="0.20572916666666666" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_add_task.xml" value="0.36666666666666664" />
         <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_archives.xml" value="0.24351851851851852" />
         <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_home.xml" value="0.24351851851851852" />
-        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
-        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_tasks_list.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_tasks_list.xml" value="0.22" />
         <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/fragment_upcoming_alarms.xml" value="0.22" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/reminder_single.xml" value="0.24351851851851852" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/single_day.xml" value="0.24351851851851852" />
         <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/single_note.xml" value="0.2203125" />
         <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/layout/snackbar_view.xml" value="0.24351851851851852" />
         <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/menu/add_note_menu.xml" value="0.2203125" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/menu/add_task_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/menu/drawer_items.xml" value="0.2203125" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/menu/popup_menu.xml" value="0.24351851851851852" />
+        <entry key="..\:/AndroidProjects/Personal/KotlinProjects/MyNotes/app/src/main/res/menu/popup_menu_remove.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

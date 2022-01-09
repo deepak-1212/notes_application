@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -7,10 +7,20 @@
         android:layout_height="match_parent"
         tools:context=".ui.TasksListFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/work_under_progress"
+            android:src="@drawable/work_under_progress"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--<androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_tasks"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"/>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
